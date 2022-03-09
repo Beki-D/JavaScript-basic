@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript based mark converter</h1>
+
+<p>Scored:</p>
+<input id="mark">
+
+<p>Out of:</p>
+<input id="total">
+
+<p id="display"></p>
+<p id="result">__</p>
+
+<p>Out of:</p>
+<input id="convert">
+
+<button type="button" onclick="myFunction()">Calculate!</button>
+
+
+<script>
+function myFunction() {
+    var x, y, z, text, result;
+
+    x = document.getElementById("mark").value;
+				y = document.getElementById("total").value;
+				z =document.getElementById("convert").value;
+
+    // If x is Not a Number or greater than y
+    if (isNaN(x) || x > y) {
+        text = "Input not valid";
+    } else {
+        text = "Input ok";
+        result = (x * z)/y;
+    }
+    document.getElementById("display").innerHTML = text;
+    document.getElementById("result").innerHTML = result;
+}
+</script>
+
+</body>
+</html> 
