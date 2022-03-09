@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    min-width: 250px;
+}
+
+/* Style the header */
+.header {
+    background-color: #d82546;
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+}
+
+.initial, .converted {
+    padding: 20px 50px;
+}
+
+#total {
+    display: block;
+}
+
+#mark > *, #total > *, #convert > * {
+    display: inline;
+}
+
+input {
+    padding: 5px 10px;
+}
+
+#mark > input, #total > input {
+    width: 150px;
+    margin: 5px auto;
+    border: #25d896 double;
+    border-radius: 110px;
+    background-color: white;
+}
+
+#result,  #convert > input {
+    margin: -1px 0 0 10px;
+    width: 150px;
+    height: 25px;
+    border: #25bad8 double;
+    border-radius: 110px;
+    background-color: white;
+}
+
+#result {
+    padding: 5px 10px;
+    color: #d82546;
+    margin: 15px;    
+}
+
+#display {
+    display: flex;
+}
+
+button {
+    display: block;
+    padding: 10px 40px;
+    color: white;
+    font-weight: 500;
+    font-size: larger;
+    text-align: center;
+    background-color: #d82546;
+    border-radius: 10px;
+    margin-top: 5vh;
+}
+
+.initial > span {
+    font-size: 25px;
+    font-weight: bold; 
+    color: rgb(12, 70, 58);
+}
+
+.converted > span {
+    font-size: 25px;
+    font-weight: bold; 
+    color: rgb(201, 88, 73);
+}
