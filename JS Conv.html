@@ -1,41 +1,130 @@
 <!DOCTYPE html>
 <html>
 <body>
+<style>
+    body {
+        margin: 0;
+        min-width: 250px;
+    }
 
-<h1>JavaScript based mark converter</h1>
+    /* Style the header */
+    .header {
+        background-color: #d82546;
+        padding: 30px 40px;
+        color: white;
+        text-align: center;
+    }
 
-<p>Scored:</p>
-<input id="mark">
+    .initial, .converted {
+        padding: 20px 50px;
+    }
+    
+    #total {
+        display: block;
+    }
 
-<p>Out of:</p>
-<input id="total">
+    #mark > *, #total > *, #convert > * {
+        display: inline;
+    }
 
-<p id="display"></p>
-<p id="result">__</p>
+    input {
+        padding: 5px 10px;
+    }
 
-<p>Out of:</p>
-<input id="convert">
+    #mark > input, #total > input {
+        width: 150px;
+        margin: 5px auto;
+        border: #25d896 double;
+        border-radius: 110px;
+        background-color: white;
+    }
+
+    #result,  #convert > input {
+        margin: -1px 0 0 10px;
+        width: 150px;
+        height: 25px;
+        border: #25bad8 double;
+        border-radius: 110px;
+        background-color: white;
+    }
+
+    #result {
+        padding: 5px 10px;
+        color: #d82546;
+        margin: 15px;    
+    }
+
+    #display {
+        display: flex;
+    }
+
+    button {
+        display: block;
+        padding: 10px 40px;
+        color: white;
+        font-weight: 500;
+        font-size: larger;
+        text-align: center;
+        background-color: #d82546;
+        border-radius: 10px;
+        margin-top: 5vh;
+    }
+
+    .initial > span {
+        font-size: 25px;
+        font-weight: bold; 
+        color: rgb(12, 70, 58);
+    }
+
+    .converted > span {
+        font-size: 25px;
+        font-weight: bold; 
+        color: rgb(201, 88, 73);
+    }
+
+</style>
+<div class="header">
+    <h1><span style="font-size: 60px; color: gold;">JavaScript</span> based mark converter</h1>
+</div>
+<div class="initial">
+    <span id="mark">
+        <p>Scored:</p>
+        <input id="mark" value="">    
+    </span>
+    <span id="total">
+        <p>Out of:</p>
+        <input type="text" id="total" value="">
+    </span>
+</div>
+<div class="converted">
+    <span id="display">
+        <p>You get:</p>
+        <div id="result">--</div>
+    </span>
+    <span id="convert">
+        <p>Out of:</p>
+        <input id="convert" value="">
+    </span>
 
 <button type="button" onclick="myFunction()">Calculate!</button>
 
 
 <script>
 function myFunction() {
-    var x, y, z, text, result;
-
-    x = document.getElementById("mark").value;
-				y = document.getElementById("total").value;
-				z =document.getElementById("convert").value;
-
+    var x = document.getElementById("mark").children[1].value;
+	var y = document.getElementById("total").children[1].value;
+	var z =document.getElementById("convert").children[1].value;
+    
     // If x is Not a Number or greater than y
     if (isNaN(x) || x > y) {
-        text = "Input not valid";
+        var txt = "Input not valid";
+        document.getElementById("result").innerHTML = txt;
     } else {
-        text = "Input ok";
-        result = (x * z)/y;
+        txt = "Input ok";
+        var v = (x * z)/y;
     }
-    document.getElementById("display").innerHTML = text;
-    document.getElementById("result").innerHTML = result;
+    
+    document.getElementById("result").innerHTML = v;
 }
 </script>
 
