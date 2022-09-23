@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery app</title>
+    <style>
+        .submit{
+            margin-bottom:10px;
+        }
+        button{
+            padding:10px;
+            background:#eee;
+            border:solid 1px #ddd;
+            font-size:18px;
+            color:#555;
+            cursor:pointer;
+            outline:none;
+        }
+        button:hover{
+            background:#999;
+            color:#fff;
+        }
+        #numbers{
+            color:#555;
+            font-size:18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Lottery Number Generator</h1>
+    <div class="submit">
+        <button onclick="generate(6, 1, 99);">Generate</button>
+    </div>
+    <div id="numbers"></div>
+    
+    <script>
+        function generate(size, lowest, highest) {
+            var numbers = [];
+        
+            for(var i = 0; i < size; i++) {
+                var add = true;
+                var randomNumber = Math.floor(Math.random() * highest) + 1;
+                
+                for(var y = 0; y < highest; y++) {
+                    if(numbers[y] == randomNumber) {
+                        add = false;
+                    }
+                }
+                if(add) {
+                    numbers.push(randomNumber);
+                } else {
+                    i--;
+                }
+            }
+        
+            var highestNumber = 0;
+
+            for(var m = 0; m < numbers.length; m++) {
+                for(var n = m + 1; n < numbers.length; n++) {
+                    if(numbers[n] < numbers[m]) {
+                        highestNumber = numbers[m];
+                        numbers[m] = numbers[n];
+                        numbers[n] = highestNumber;
+                    }
+                }
+            }
+        
+            document.getElementById("numbers").innerHTML = numbers.join(" - ");
+        }
+    </script>
+</body>
+</html>
